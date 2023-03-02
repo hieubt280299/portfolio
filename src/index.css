@@ -1,13 +1,93 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  overflow: hidden;
+  height: 100vh;
+  background-color: #121212;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body.light {
+  background-color: #fff;
+}
+
+body.dark {
+  background-color: #121212;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Handle */
+body .fade::-webkit-scrollbar-thumb, body .MuiDialog-paper::-webkit-scrollbar-thumb {
+  background-color: #555;
+  border-radius: 20px;
+  border: 1px solid #333;
+}
+
+body .fade::-webkit-scrollbar-track, body .MuiDialog-paper::-webkit-scrollbar-track {
+  background-color: #333;
+}
+
+body.light .fade::-webkit-scrollbar-thumb, body.light .MuiDialog-paper::-webkit-scrollbar-thumb {
+  background-color: #bbb;
+  border-radius: 20px;
+  border: 3px solid #fff;
+}
+
+body.light .fade::-webkit-scrollbar-track, body.light .MuiDialog-paper::-webkit-scrollbar-track {
+  background-color: #fff;
+}
+
+::selection {
+  background: #ffb400;
+  color: #fff;
+}
+
+.fade {
+  height: 100vh;
+  height: 100svh;
+  overflow-y: auto;
+}
+
+.fadeIn {
+  animation: 0.5s fadeIn forwards;
+}
+
+.fadeOut {
+  animation: 0.5s fadeOut forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-5px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
+  to {
+    transform: translate(-5px, 0);
+    opacity: 0;
+  }
+}
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
+
