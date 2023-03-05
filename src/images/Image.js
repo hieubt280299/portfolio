@@ -1,8 +1,8 @@
 import jsLogo from "./js.png";
 import tsLogo from "./ts.png";
 import reactLogo from "./react.png";
-import htmlLogo from "./html.webp";
-import cssLogo from "./css.webp";
+import htmlLogo from "./html.png";
+import cssLogo from "./css.png";
 import sassLogo from "./sass.png";
 import avatar from "./avt.png";
 

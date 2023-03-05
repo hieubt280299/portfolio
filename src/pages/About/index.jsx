@@ -1,7 +1,6 @@
 import styled from "@emotion/styled";
 import { Timeline, TimelineConnector, TimelineContent, TimelineDot, TimelineItem, TimelineOppositeContent, TimelineSeparator } from "@mui/lab";
 import { Grid, Typography } from "@mui/material";
-import { LazyLoadImage } from "react-lazy-load-image-component";
 import Image from "../../images/Image";
 import WorkIcon from "@mui/icons-material/Work";
 import SchoolIcon from "@mui/icons-material/School";
@@ -180,7 +179,7 @@ const About = () => {
               {techLogo.map(({ title, src }) => (
                 <Grid sx={{ display: "flex", justifyContent: upSm ? "center" : "flex-start" }} key={src} item xs={6} sm={4} md={4} lg={4}>
                   <SkillItem>
-                    <LazyLoadImage src={src} alt={title} effect="blur" />
+                    <img src={src} alt={title} title={title} />
                   </SkillItem>
                 </Grid>
               ))}
