@@ -19,7 +19,7 @@ const MainTextBlock = styled("div")(({ theme, upSm }) => ({
   minWidth: upSm ? 0 : "500px",
   maxWidth: upSm ? "unset" : "750px",
   paddingRight: upSm ? 0 : 96,
-  textAlign: upSm ? "justify" : "left",
+  textAlign: "left",
   display: "flex",
   flexDirection: "column",
   justifyContent: "center",

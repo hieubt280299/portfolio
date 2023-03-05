@@ -1,6 +1,5 @@
 import styled from "@emotion/styled";
 import { Timeline, TimelineConnector, TimelineContent, TimelineDot, TimelineItem, TimelineOppositeContent, TimelineSeparator } from "@mui/lab";
-import { timelineOppositeContentClasses } from "@mui/lab/TimelineOppositeContent";
 import { Grid, Typography } from "@mui/material";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import Image from "../../images/Image";
