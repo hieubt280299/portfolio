@@ -101,21 +101,31 @@ const contactItems = [
 const Contact = () => {
   const width = useWidth();
   const upSm = useMemo(() => ["xs", "sm"].includes(width), [width]);
+  const xs = useMemo(() => ["xs"].includes(width), [width]);
   return (
-    <Container maxWidth="lg">
+    <Container maxWidth="lg" sx={{ py: "8px" }}>
       <Title>
         <span>GET IN </span>
         <span>TOUCH</span>
       </Title>
       <Grid container justifyContent="space-around">
-        <Grid item display="flex" flexDirection="column" mb={upSm ? 10 : 0} xs={12} md={6} justifyContent="space-between">
+        <Grid item display="flex" flexDirection="column" mb={upSm ? 3 : 0} xs={12} md={6} justifyContent="space-between">
           <div>
             <SectionTitle>DON'T BE SHY</SectionTitle>
             <Typography variant="subtitle1" sx={{ marginTop: "24px" }}>
               Feel free to get in touch with me. I am always open to discussing new projects, creative ideas or opportunities to be part of your visions.
             </Typography>
           </div>
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: 15 }}>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: xs ? "column" : "row",
+              alignItems: xs ? "flex-start" : "center",
+              justifyContent: "space-between",
+              gap: 12,
+              marginTop: 12,
+            }}
+          >
             <div>
               {socialMediaItems.map(({ Icon, url }) => (
                 <ContactButton key={url} size="small" target="_blank" href={url}>

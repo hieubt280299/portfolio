@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { Timeline, TimelineConnector, TimelineContent, TimelineDot, TimelineItem, TimelineOppositeContent, TimelineSeparator } from "@mui/lab";
+import { timelineOppositeContentClasses } from "@mui/lab/TimelineOppositeContent";
 import { Grid, Typography } from "@mui/material";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import Image from "../../images/Image";
@@ -120,7 +121,7 @@ const timelineItems = [
   },
   {
     type: "work",
-    title: "Front-end Developer",
+    title: "Frontend Developer",
     subtitle: "SmartOSC Corp.",
     time: "Jan 2021 - Aug 2021",
   },
@@ -171,7 +172,7 @@ const About = () => {
           </Section>
         </Grid>
         <Grid item xs={12} md={6}>
-          <Section sx={{ alignItems: upSm ? "center" : "flex-start" }}>
+          <Section sx={{ alignItems: "flex-start" }}>
             <SectionTitle>
               <span>MY </span>
               <span>SKILLS</span>
@@ -194,25 +195,54 @@ const About = () => {
               <span>EXPERIENCE & </span>
               <span>EDUCATION</span>
             </SectionTitle>
-            <Timeline position="alternate" sx={{ marginLeft: upSm ? "-16px" : 0 }}>
-              {timelineItems.map(({ type, title, subtitle, time }, index) => (
-                <TimelineItem key={time}>
-                  <TimelineOppositeContent sx={{ m: "15px 0" }} align="right" variant="body2" color="text.secondary">
-                    <TimeSpan>{time}</TimeSpan>
-                  </TimelineOppositeContent>
-                  <TimelineSeparator>
-                    <TimelineDot color="primary">{type === "work" ? <WorkIcon /> : <SchoolIcon />}</TimelineDot>
-                    {index < timelineItems.length - 1 && <TimelineConnector />}
-                  </TimelineSeparator>
-                  <TimelineContent sx={{ py: "12px", px: 2 }}>
-                    <Typography variant="h5" component="span" color="primary" sx={width === "xs" ? { fontSize: "inherit" } : undefined}>
-                      {title}
-                    </Typography>
-                    <Typography variant="subtitle1">{subtitle}</Typography>
-                  </TimelineContent>
-                </TimelineItem>
-              ))}
-            </Timeline>
+            {upSm ? (
+              <Timeline sx={{ px: 0 }}>
+                {timelineItems.map(({ type, title, subtitle, time }, index) => (
+                  <TimelineItem
+                    key={time}
+                    sx={{
+                      [`&:before`]: {
+                        flex: 0,
+                      },
+                    }}
+                  >
+                    <TimelineSeparator>
+                      <TimelineDot color="primary">{type === "work" ? <WorkIcon /> : <SchoolIcon />}</TimelineDot>
+                      {index < timelineItems.length - 1 && <TimelineConnector />}
+                    </TimelineSeparator>
+                    <TimelineContent sx={{ py: "12px", px: 2 }}>
+                      <Typography variant="body2" color="text.secondary">
+                        <TimeSpan>{time}</TimeSpan>
+                      </Typography>
+                      <Typography variant="h5" component="span" color="primary" sx={width === "xs" ? { fontSize: "inherit" } : undefined}>
+                        {title}
+                      </Typography>
+                      <Typography variant="subtitle1">{subtitle}</Typography>
+                    </TimelineContent>
+                  </TimelineItem>
+                ))}
+              </Timeline>
+            ) : (
+              <Timeline position="alternate" sx={{ marginLeft: 0 }}>
+                {timelineItems.map(({ type, title, subtitle, time }, index) => (
+                  <TimelineItem key={time}>
+                    <TimelineOppositeContent sx={{ m: "15px 0" }} align="right" variant="body2" color="text.secondary">
+                      <TimeSpan>{time}</TimeSpan>
+                    </TimelineOppositeContent>
+                    <TimelineSeparator>
+                      <TimelineDot color="primary">{type === "work" ? <WorkIcon /> : <SchoolIcon />}</TimelineDot>
+                      {index < timelineItems.length - 1 && <TimelineConnector />}
+                    </TimelineSeparator>
+                    <TimelineContent sx={{ py: "12px", px: 2 }}>
+                      <Typography variant="h5" component="span" color="primary" sx={width === "xs" ? { fontSize: "inherit" } : undefined}>
+                        {title}
+                      </Typography>
+                      <Typography variant="subtitle1">{subtitle}</Typography>
+                    </TimelineContent>
+                  </TimelineItem>
+                ))}
+              </Timeline>
+            )}
           </ExperienceSection>
         </Grid>
       </ContentWrapper>

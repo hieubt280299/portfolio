@@ -4,7 +4,7 @@ import { useMemo } from "react";
 import { useWidth } from "../../hooks";
 
 const StyledSectionTitle = styled(Typography)(({ theme }) => ({
-  marginTop: 50,
+  marginTop: 24,
   fontWeight: "bold",
   width: "fit-content",
 

@@ -6,6 +6,7 @@ import About from "../About";
 import { useWidth } from "../../hooks";
 import CloseIcon from "@mui/icons-material/Close";
 import Image from "../../images/Image";
+import { useNavigate } from "react-router-dom";
 
 const ColorBlock = styled("div")(({ theme }) => ({
   backgroundColor: theme.palette.primary.main,
@@ -15,7 +16,7 @@ const ColorBlock = styled("div")(({ theme }) => ({
 
 const MainTextBlock = styled("div")(({ theme, upSm }) => ({
   marginLeft: upSm ? 0 : 80,
-  minWidth: "500px",
+  minWidth: upSm ? 0 : "500px",
   maxWidth: upSm ? "unset" : "750px",
   paddingRight: upSm ? 0 : 96,
   textAlign: upSm ? "justify" : "left",
@@ -23,11 +24,12 @@ const MainTextBlock = styled("div")(({ theme, upSm }) => ({
   flexDirection: "column",
   justifyContent: "center",
   alignItems: upSm ? "center" : "flex-start",
+  paddingBlock: 16,
 }));
 
-const Title = styled(Typography)(({ theme }) => ({
+const Title = styled(Typography)(({ theme, upSm }) => ({
   color: theme.palette.primary.main,
-  fontSize: "51px",
+  fontSize: upSm ? 40 : 51,
   lineHeight: "62px",
   fontWeight: "700",
   margin: "18px 0 10px",
@@ -37,7 +39,7 @@ const Title = styled(Typography)(({ theme }) => ({
 
 const Subtitle = styled(Title)(({ theme, upSm }) => ({
   color: theme.palette.secondary.contrastText,
-  fontSize: upSm ? 40 : 51,
+  fontSize: upSm ? 28 : 51,
 }));
 
 const Details = styled(Typography)(({ theme }) => ({
@@ -96,21 +98,35 @@ const Homepage = () => {
   const width = useWidth();
   const upSm = useMemo(() => ["xs", "sm"].includes(width), [width]);
 
+  const navigate = useNavigate();
+
   return (
     <>
       {!upSm && <ColorBlock />}
       <MainTextBlock upSm={upSm}>
         {upSm ? <AvatarUpSm src={Image.avatar} /> : <Avatar src={Image.avatar} />}
-        <Title variant="h1">Bui Trung Hieu</Title>
+        <Title variant="h1" upSm={upSm}>
+          Bui Trung Hieu
+        </Title>
         <Subtitle variant="h1" upSm={upSm}>
           Frontend Developer
         </Subtitle>
         <Details variant="body1">
-          2+ years experienced Software Engineer skilled in developing front-end websites utilizing React and Redux. Passionate about learning new technologies,
+          2+ years experienced Software Engineer skilled in developing frontend websites utilizing React and Redux. Passionate about learning new technologies,
           bringing ideas to life, and working with dedicated teams to build efficient and robust applications suited to the user's needs.
         </Details>
         <MoreButton variant="outlined">
-          <MoreButtonText onClick={() => setOpenAbout(true)}>MORE ABOUT ME</MoreButtonText>
+          <MoreButtonText
+            onClick={() => {
+              if (upSm) {
+                navigate("/about");
+              } else {
+                setOpenAbout(true);
+              }
+            }}
+          >
+            MORE ABOUT ME
+          </MoreButtonText>
           <IconContainer>
             <ArrowForwardIcon />
           </IconContainer>
