@@ -113,9 +113,15 @@ const techLogo = [
 const timelineItems = [
   {
     type: "work",
+    title: "Frontend Developer",
+    subtitle: "Creative Force",
+    time: "Jul 2023 - present",
+  },
+  {
+    type: "work",
     title: "Software Developer",
     subtitle: "AvePoint Vietnam",
-    time: "Aug 2021 - present",
+    time: "Aug 2021 - Jun 2023",
   },
   {
     type: "work",

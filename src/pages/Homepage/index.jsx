@@ -100,6 +100,14 @@ const Homepage = () => {
 
   const navigate = useNavigate();
 
+  const handleMore = () => {
+    if (upSm) {
+      navigate("/about");
+    } else {
+      setOpenAbout(true);
+    }
+  };
+
   return (
     <>
       {!upSm && <ColorBlock />}
@@ -115,18 +123,8 @@ const Homepage = () => {
           2+ years experienced Software Engineer skilled in developing frontend websites utilizing React and Redux. Passionate about learning new technologies,
           bringing ideas to life, and working with dedicated teams to build efficient and robust applications suited to the user's needs.
         </Details>
-        <MoreButton variant="outlined">
-          <MoreButtonText
-            onClick={() => {
-              if (upSm) {
-                navigate("/about");
-              } else {
-                setOpenAbout(true);
-              }
-            }}
-          >
-            MORE ABOUT ME
-          </MoreButtonText>
+        <MoreButton variant="outlined" onClick={handleMore}>
+          <MoreButtonText>MORE ABOUT ME</MoreButtonText>
           <IconContainer>
             <ArrowForwardIcon />
           </IconContainer>
