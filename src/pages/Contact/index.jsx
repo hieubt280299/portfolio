@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import { Button, Container, Fab, Grid, Typography } from "@mui/material";
 import FacebookOutlinedIcon from "@mui/icons-material/FacebookOutlined";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import GitHubIcon from "@mui/icons-material/GitHub";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import EmailIcon from "@mui/icons-material/Email";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
@@ -77,6 +78,10 @@ const socialMediaItems = [
   {
     Icon: LinkedInIcon,
     url: "https://www.linkedin.com/in/hieubt280299/",
+  },
+  {
+    Icon: GitHubIcon,
+    url: "https://github.com/hieubt280299/",
   },
 ];
 
